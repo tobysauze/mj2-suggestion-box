@@ -33,7 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function setupEventListeners() {
     // Navigation
-    homeBtn.addEventListener('click', () => showView('form'));
+    homeBtn.addEventListener('click', () => {
+        // Navigate back to the main MJII Operations Hub
+        window.open('https://tobysauze.github.io/mjii-home-app/', '_blank');
+    });
     viewSuggestionsBtn.addEventListener('click', () => showView('suggestions'));
     adminBtn.addEventListener('click', () => showView('admin'));
     
