@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mary Jean II - Suggestion Box</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-container">
+                    <div class="logo-section">
+                        <img src="logo/mjii-logo.png" alt="Mary Jean II Yacht" class="yacht-logo">
+                        <p class="subtitle">Suggestion Box</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button id="homeBtn" class="nav-btn home-btn" style="display: none;">Home</button>
+                <button id="viewSuggestionsBtn" class="nav-btn">View Suggestions</button>
+                <button id="adminBtn" class="nav-btn admin-btn">Admin</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Suggestion Form -->
+            <section id="suggestionForm" class="form-section">
+                <div class="form-container">
+                    <h2>Submit Your Suggestion</h2>
+                    <p class="form-description">Your suggestions help us improve life aboard Mary Jean II. All submissions are completely anonymous.</p>
+                    
+                    <form id="suggestionFormElement">
+                        <div class="form-group">
+                            <label for="suggestionText">Your Suggestion:</label>
+                            <textarea 
+                                id="suggestionText" 
+                                name="suggestion" 
+                                placeholder="Share your ideas for improving our yacht operations, crew welfare, guest experience, or any other aspect of life aboard Mary Jean II..."
+                                required
+                                maxlength="1000"
+                            ></textarea>
+                            <div class="char-count">
+                                <span id="charCount">0</span>/1000 characters
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Category (Optional):</label>
+                            <select id="category" name="category">
+                                <option value="">Select a category</option>
+                                <option value="safety">Safety & Security</option>
+                                <option value="operations">Operations & Procedures</option>
+                                <option value="crew">Crew Welfare</option>
+                                <option value="guest">Guest Experience</option>
+                                <option value="maintenance">Maintenance & Equipment</option>
+                                <option value="communication">Communication</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Submit Suggestion</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Suggestions List -->
+            <section id="suggestionsList" class="suggestions-section" style="display: none;">
+                <div class="suggestions-container">
+                    <h2>Recent Suggestions</h2>
+                    <div class="filter-controls">
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="safety">Safety & Security</option>
+                            <option value="operations">Operations & Procedures</option>
+                            <option value="crew">Crew Welfare</option>
+                            <option value="guest">Guest Experience</option>
+                            <option value="maintenance">Maintenance & Equipment</option>
+                            <option value="communication">Communication</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <button id="refreshBtn" class="refresh-btn">Refresh</button>
+                    </div>
+                    <div id="suggestionsContainer" class="suggestions-grid">
+                        <!-- Suggestions will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Panel -->
+            <section id="adminPanel" class="admin-section" style="display: none;">
+                <div class="admin-container">
+                    <h2>Admin Panel</h2>
+                    <div class="admin-controls">
+                        <div class="admin-login">
+                            <input type="password" id="adminPassword" placeholder="Enter admin password">
+                            <button id="adminLoginBtn">Login</button>
+                        </div>
+                        <div id="adminContent" style="display: none;">
+                            <div class="admin-stats">
+                                <div class="stat-card">
+                                    <h3>Total Suggestions</h3>
+                                    <span id="totalSuggestions">0</span>
+                                </div>
+                                <div class="stat-card">
+                                    <h3>This Week</h3>
+                                    <span id="weeklySuggestions">0</span>
+                                </div>
+                            </div>
+                            <div class="admin-actions">
+                                <button id="sendWeeklyReportBtn" class="admin-action-btn">Send Weekly Report</button>
+                                <button id="exportSuggestionsBtn" class="admin-action-btn">Export Suggestions</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="adminSuggestionsList" class="admin-suggestions">
+                        <!-- Admin suggestions list will be loaded here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Mary Jean II. All suggestions are anonymous and confidential.</p>
+        </footer>
+    </div>
+
+    <!-- Success/Error Messages -->
+    <div id="messageContainer" class="message-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
